@@ -1,14 +1,5 @@
-extern "C" {
-    fn abs(input: i32) -> i32;
-}
-
-#[no_mangle]
-pub extern "C" fn call_from_c() {
-    println!("Just calld a Rust function from C!");
-}
+static HELLO_WORLD: &str = "Hello, world!";
 
 fn main() {
-    unsafe {
-        println!("Absolute value of -3 is {}", abs(-3));
-    }
+    println!("name is: {}", HELLO_WORLD);
 }
