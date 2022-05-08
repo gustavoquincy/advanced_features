@@ -1,14 +1,21 @@
-static mut COUNTER: u32 = 0;
+trait Animal {
+    fn baby_name() -> String;
+}
 
-fn add_to_count(inc: u32) {
-    unsafe {
-        COUNTER += inc;
+struct Dog;
+
+impl Dog {
+    fn baby_name() -> String {
+        String::from("Spot")
+    }
+}
+ 
+impl Animal for Dog {
+    fn baby_name() -> String {
+        String::from("puppy")
     }
 }
 fn main() {
-    add_to_count(3);
-
-    unsafe {
-        println!("COUNTER: {}", COUNTER);
-    } 
+    println!("A dog is named {}", Dog::baby_name());
+    println!("A baby dog is called a {}", <Dog as Animal>::baby_name());
 }
