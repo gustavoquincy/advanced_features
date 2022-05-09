@@ -29,3 +29,7 @@ fn main() {
     let point = Point{ x: 1, y: 3 };
     point.outline_part();
 }
+
+fn return_closure() -> Box<dyn Fn(i32) -> i32> {
+    Box::new(|x| x + 1)
+}
